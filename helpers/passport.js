@@ -1,5 +1,5 @@
 const passport = require("passport");
-const User = require("../models/User");
+const User = require("../models/Employee");
 
 passport.use(User.createStrategy());
 

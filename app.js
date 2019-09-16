@@ -14,7 +14,7 @@ const passport     = require('./helpers/passport')
 
 
 mongoose
-  .connect('mongodb://localhost/proyecto-modulo2', {useNewUrlParser: true})
+  .connect('mongodb://localhost/proyecto-modulo2', {useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -73,10 +73,9 @@ app.locals.title = 'Proyecto Modulo 2';
 
 
 
-const index = require('./routes/index');
-const auth = require('./routes/auth')
-app.use('/', index);
-app.use('/auth', auth)
+app.use('/', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
+app.use('/profile', require('./routes/profile'));
 
 
 
