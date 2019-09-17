@@ -1,9 +1,10 @@
-const express = require('express');
-const router  = express.Router();
+const express = require('express')
+const router = express.Router()
+const User = require('../models/User')
+const passport = require('passport')
 
-/* GET home page */
-router.get('/', (req, res, next) => {
-  res.render('index');
-});
+router.get('/', (req,res) => {
+  res.redirect('/auth/login')
+})
 
 module.exports = router;

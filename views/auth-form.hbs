@@ -1,41 +1,44 @@
-<h1>YAAAAAA</h1>
-​
 <form action="/auth/login" method="post">
-<label for="">Email</label>
-<input type="email" name="email">
-<label for="">Password</label>
-<input type="password" name="password">
-<br>
-<input type="submit" value="Login">
+
+<div class="columns is-centered">
+	<div class="column is-6">
+		<h2 class="title is-3">Iniciar Sesion</h2>
+		<hr>
+		<div class="box">
+			<form action="/" method="POST">
+			<div class="field">
+				<label class="label">Email:</label>
+				<div class="control has-icons-left has-icons-right">
+					<input class="input" type="email"name="email">
+					<span class="icon is-small is-left">
+						<i class="fas fa-envelope"></i>
+					</span>
+				</div>
+				<p class="help is-danger">Este email no es valido</p>
+			</div>
+
+			<div class="field">
+				<label class="label">Contraseña:</label>
+				<div class="control has-icons-left has-icons-right">
+					<input class="input" type="password" name="password">
+					<span class="icon is-small is-left">
+						<i class="fas fa-key"></i>
+					</span>
+				</div>
+			</div>
+
+			<div class="buttons is-right">
+				<button type="submit" value="create" class="button is-fullwidth is-success is-hovered">
+					<span>Iniciar Sesion</span>
+				</button>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
 </form>
 
 
 
-{{!-- PARA HACER LOGIN With icons --}}
-{{!-- POR QUE ESTE NO ES UN FORM CON ACTION Y POST, SOLO SE AGREGA?? --}}
 
 
-{{!-- <div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Email">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <button class="button is-primary">
-      Login
-    </button> --}}
