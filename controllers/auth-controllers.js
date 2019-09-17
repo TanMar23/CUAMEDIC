@@ -1,6 +1,5 @@
 const User = require('../models/User')
 
-
 exports.login = async(req,res,next) => {
   if(req.user.role === 'MEDICO') {
    res.redirect('/auth/profile')
