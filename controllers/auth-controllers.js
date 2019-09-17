@@ -1,6 +1,6 @@
 exports.login = (req,res,next) => {
   if(req.user.role === 'MEDICO') {
-   res.redirect('/dr-home')
+    res.redirect('/dr-home')
   }
   else if(req.user.role === 'EMPLEADO') {
    res.redirect('/emp-home')

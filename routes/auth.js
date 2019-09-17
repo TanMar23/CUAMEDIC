@@ -15,6 +15,10 @@ router.get("/login", (req, res) => {
 
 router.post("/login", passport.authenticate('local'), login)
 
+router.get('/dr-home', (req,res) =>{
+  res.render('profile')
+})
+
 
 //router.post("/register", (req, res) => {
 //  const { password } = req.body;
