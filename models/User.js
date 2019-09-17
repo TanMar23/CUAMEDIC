@@ -12,15 +12,24 @@ const UserSchema = new Schema(
     },
     role: {
       type:String,
-      enum: ['MEDICO', 'EMPLEADO'],
+      enum: ['MEDICO', 'EMPLEADO', 'PACIENTE'],
       default: 'EMPLEADO'
     },
     fotoPerfil: {
       type: String
-    }
+    },
+    peso: [Number],
+    talla: [Number],
+    IMC: [Number],
+    porcentajeGrasa: [Number],
+    porcentajeMusculo: [Number],
+    indiceCinturaCadera: [Number],
+    MetabolismoBasalEnReposo: [Number],
+    fotosProgreso: [String]
   },
   { timestamps: true }
 );
+
 
 UserSchema.plugin(PLM, {
   usernameField: "email"
