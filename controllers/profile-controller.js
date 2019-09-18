@@ -19,3 +19,11 @@ exports.editProfile = async (req,res,next) => {
   await User.findByIdAndUpdate(req.user.id,{ name, lastName, email})
   res.redirect('/auth/profile')
 }
+
+exports.getColaboradores = async (req,res,next) => {
+  const users =await User.find({role: 'EMPLEADO'})
+  console.log('=====================================' + users);
+  
+  res.render('auth/lista', {users})
+
+}

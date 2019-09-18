@@ -4,7 +4,7 @@ const User = require('../models/User')
 const passport = require('passport')
 const nodemailer = require('nodemailer')
 const {login} = require('../controllers/auth-controllers')
-const {getProfile, editProfileForm, editProfile} = require('../controllers/profile-controller')
+const {getProfile, editProfileForm, editProfile, getColaboradores} = require('../controllers/profile-controller')
 
 router.get("/login", (req, res) => {
   res.render("auth-form");
@@ -16,6 +16,8 @@ router.get('/profile', getProfile)
 router.get('/edit-profile',editProfileForm)
 
 router.post('/edit-profile', editProfile)
+
+router.get('/colaboradores', getColaboradores)
 
 
 
