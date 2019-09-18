@@ -31,12 +31,38 @@ const boss1 =
     role: 'EMPLEADO',
     fotoPerfil: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
   }
+  const employee1 =
+  {
+    name: 'Juan',
+    lastName: 'Henao',
+    email: 'juan.henao@gmail.com',
+    role: 'EMPLEADO',
+    fotoPerfil: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+  }
 
   const patient =
   {
     name: 'Felipe',
     lastName: 'Payan',
     email: 'felipe.payan@gmail.com',
+    role: 'PACIENTE',
+    fotoPerfil: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
+    peso: [70],
+    talla: [40],
+    IMC: [50],
+    porcentajeGrasa: [20],
+    porcentajeMusculo: [50],
+    indiceCinturaCadera: [12],
+    MetabolismoBasalEnReposo: [10],
+    fotosProgreso: ['http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'],
+    descripcion: 'asdfghjkjhgfczxvcbngmfntgdfc',
+    sexo: 'Masculino',
+  }
+  const patient1 =
+  {
+    name: 'Juan',
+    lastName: 'Payan',
+    email: 'juan.payan@gmail.com',
     role: 'PACIENTE',
     fotoPerfil: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
     peso: [70],
@@ -58,7 +84,9 @@ const boss1 =
     const user = await User.register(boss1, boss1.password='123')
     const user1 = await User.register(boss2, boss2.password='123')
     const user3 = await User.register(employee, employee.password='123')
+    const user31 = await User.register(employee1, employee1.password='123')
     const user4 = await User.register(patient, patient.password='123')
+    const user5 = await User.register(patient1, patient1.password='123')
     console.log(`Boss created`)
     mongoose.connection.close()
   })

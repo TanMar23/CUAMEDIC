@@ -27,3 +27,4 @@ exports.getColaboradores = async (req,res,next) => {
   res.render('auth/lista', {users})
 
 }
+

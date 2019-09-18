@@ -1,1 +1,11 @@
-<h1>hola</h1>
+<h1>PACIENTES</h1>
+<br>
+{{#each pacientes}}
+<p>{{this.name}}</p>
+<a href="/auth/edit-patient/{{this._id}}">Editar paciente</a>
+<br>
+{{!-- NO OLVIDES CAMBIAR ACTION EN DELETE --}}
+<form action="/auth/delete-patient/{{this._id}}" method="POST"><button>Borrar</button></form>
+{{/each}}
+<br><br>
+<a href="/auth/create-patient"><button>Añadir paciente</button></a>
