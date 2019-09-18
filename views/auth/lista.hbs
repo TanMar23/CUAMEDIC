@@ -1,1 +1,12 @@
-<h1>hola</h1>
+<h1>COLABORADORES</h1>
+<br><br>
+{{#each users}}
+<h1>{{this.name}}</h1>
+<a href="/auth/edit-colaborador/{{this._id}}"><button>Editar</button></a>
+<br>
+<form action="/auth/delete-colaborador/{{this._id}}" method="POST"><button>Borrar</button></form>
+<br>
+<br>
+{{/each}}
+<br><br>
+<a href="/auth/create-collaborator"><button>Añadir colaborador</button></a>

@@ -15,15 +15,6 @@ exports.editProfileForm = async (req,res) => {
 }
 exports.editProfile = async (req,res,next) => {
   const {name, lastName, email} = req.body
-  console.log(req.body)
   await User.findByIdAndUpdate(req.user.id,{ name, lastName, email})
   res.redirect('/auth/profile')
-}
-
-exports.getColaboradores = async (req,res,next) => {
-  const users =await User.find({role: 'EMPLEADO'})
-  console.log('=====================================' + users);
-  
-  res.render('auth/lista', {users})
-
 }
