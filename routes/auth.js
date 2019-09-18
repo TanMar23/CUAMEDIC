@@ -4,7 +4,7 @@ const User = require('../models/User')
 const passport = require('passport')
 const nodemailer = require('nodemailer')
 const {login} = require('../controllers/auth-controllers')
-const {getProfile, editProfileForm} = require('../controllers/profile-controller')
+const {getProfile, editProfileForm, editProfile} = require('../controllers/profile-controller')
 
 router.get('/', (req, res, next) => {
   res.redirect('/auth/login');
@@ -18,6 +18,8 @@ router.post("/login", passport.authenticate('local'), login)
 router.get('/profile', getProfile)
 
 router.get('/edit-profile',editProfileForm)
+
+router.post('/edit-profile', editProfile)
 
 
 

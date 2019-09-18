@@ -1,14 +1,16 @@
-<form action="/auth/edit-profile" method="post" enctype="multipart/form-data">
+<form action="/auth/edit-profile" method="POST">
 <img src="{{fotoPerfil}}" alt="">
+<br>
 <label for="name">Name</label>
-<input type="text" value="{{name}}">
-<label for="lastname">Last Name</label>
-<input type="text" value="{{lastName}}">
+<input name="name" type="text" value="{{name}}">
+<br>
+<label for="lastName">Last Name</label>
+<input name="lastName" type="text" value="{{lastName}}">
+<br>
 <label for="email">Email</label>
-<input type="email" value="{{email}}">
-<label for="image">Image</label>
-<input name="image" type="file">
-
+<input  name="email" type="email" value="{{email}}">
+<br>
+<br>
 <input type="submit" value="Edit profile">
 
 

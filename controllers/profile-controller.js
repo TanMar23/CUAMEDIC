@@ -7,14 +7,16 @@ exports.getProfile = async(req, res, next) => {
   res.render('auth/profile', user)
 }
 //Update
-//TODO: Form para editar datos del usuario
+//TODO: Darle estilos al formulario
 exports.editProfileForm = async (req,res) => {
   const id = req.user.id
   const user = await User.findById(id) 
   res.render('auth/edit-profile', user)
 }
-//exports.editProfile = async (req,res,next) => {
-//  const id = req.user.id
-//  const user = await User.findByIdAndUpdate(id)
-//}
-//
+exports.editProfile = async (req,res,next) => {
+  const {name, lastName, email} = req.body
+  console.log(req.body)
+  await User.findByIdAndUpdate(req.user.id,{ name, lastName, email})
+  res.redirect('/auth/profile')
+}
+
