@@ -25,7 +25,11 @@ const UserSchema = new Schema(
     porcentajeMusculo: [Number],
     indiceCinturaCadera: [Number],
     MetabolismoBasalEnReposo: [Number],
-    fotosProgreso: [String]
+    fotosProgreso: [String],
+    educacion: [String],
+    experiencia: [String],
+    descripcion: [String],
+    sexo: String,
   },
   { timestamps: true }
 );

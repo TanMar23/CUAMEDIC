@@ -18,4 +18,11 @@ a {
 .column.is-6 {
   margin-top: 7.5%; }
 
+.centrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-top: 15px; }
+
 /*# sourceMappingURL=style.css.map */

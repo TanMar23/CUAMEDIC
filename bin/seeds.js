@@ -9,7 +9,9 @@ const boss1 =
     lastName: 'Popoca',
     email: 'emilianopb92@gmail.com',
     role: 'MEDICO',
-    fotoPerfil: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+    fotoPerfil: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
+    educacion: 'Loquesea',
+    experiencia: 'Loquesea'
   }
   const boss2 = 
   {
@@ -17,7 +19,9 @@ const boss1 =
     lastName: 'Marin',
     email: 'nicte.tania@gmail.com',
     role: 'MEDICO',
-    fotoPerfil: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+    fotoPerfil: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
+    educacion: 'Loquesea',
+    experiencia: 'Loquesea'
   }
   const employee =
   {
@@ -42,7 +46,9 @@ const boss1 =
     porcentajeMusculo: [50],
     indiceCinturaCadera: [12],
     MetabolismoBasalEnReposo: [10],
-    fotosProgreso: ['http://s3.amazonaws.com/37assets/svn/765-default-avatar.png']
+    fotosProgreso: ['http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'],
+    descripcion: 'asdfghjkjhgfczxvcbngmfntgdfc',
+    sexo: 'Masculino',
   }
 
 
