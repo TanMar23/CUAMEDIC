@@ -8,6 +8,8 @@ const {getProfile, editProfileForm, editProfile} = require('../controllers/profi
 const {getColaboradores, createColaborador, createColaboradorForm
        ,editColaborador, editColaboradorForm, deleteColaborador} = require('../controllers/colaboradores-controller')
 
+const {createPatientForm, createPatient, getPacientes, editPatientForm, editPatient, deletePatient} = require('../controllers/pacientes-controllers')
+
 router.get("/login", (req, res) => {
   res.render("auth-form");
 });
@@ -30,6 +32,20 @@ router.post('/edit-colaborador/:id', editColaborador)
 //Delete
 router.post('/delete-colaborador/:id', deleteColaborador)
 
+
+//RUTAS PACIENTES
+
+router.get('/create-patient', createPatientForm)
+
+router.post('/create-patient', createPatient)
+
+router.get('/pacientes', getPacientes)
+
+router.get('/edit-patient/:id', editPatientForm)
+
+router.post('/edit-patient/:id', editPatient)
+
+router.post('/delete-patient/:id', deletePatient)
 
 
 

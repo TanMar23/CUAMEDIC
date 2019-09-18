@@ -13,7 +13,7 @@ const UserSchema = new Schema(
     role: {
       type:String,
       enum: ['MEDICO', 'EMPLEADO', 'PACIENTE'],
-      default: 'EMPLEADO'
+      default: 'PACIENTE'
     },
     fotoPerfil: {
       type: String

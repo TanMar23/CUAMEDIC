@@ -1,3 +1,5 @@
+
+{{#if users}}
 <h1>COLABORADORES</h1>
 <br><br>
 {{#each users}}
@@ -10,3 +12,17 @@
 {{/each}}
 <br><br>
 <a href="/auth/create-collaborator"><button>Añadir colaborador</button></a>
+
+{{else}}
+<h1>PACIENTES</h1>
+<br>
+{{#each pacientes}}
+<p>{{this.name}}</p>
+<a href="/auth/edit-patient/{{this._id}}">Editar paciente</a>
+<br>
+{{!-- NO OLVIDES CAMBIAR ACTION EN DELETE --}}
+<form action="/auth/delete-patient/{{this._id}}" method="POST"><button>Borrar</button></form>
+{{/each}}
+<br><br>
+<a href="/auth/create-patient"><button>Añadir paciente</button></a>
+{{/if}}

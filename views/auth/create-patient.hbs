@@ -1,0 +1,46 @@
+{{!-- FORMULARIO PARA CREAR PACIENTE --}}
+<h1>Crear Paciente</h1>
+
+<form action="/auth/create-patient" method="POST">
+<label for="name">Name</label>
+<input name="name" type="text" value="{{name}}">
+<br>
+<label for="lastName">Last Name</label>
+<input name="lastName" type="text" value="{{lastName}}">
+<br>
+<label for="email">Email</label>
+<input  name="email" type="email" value="{{email}}">
+<br>
+<label for="password">Password</label>
+<input name="password" type="password" value="{{password}}">
+<br>
+<label for="peso">Peso</label>
+<input  name="peso" type="number" value="{{peso}}">
+<br>
+<label for="talla">Talla</label>
+<input  name="talla" type="number" value="{{talla}}">
+<br>
+<label for="imc">IMC</label>
+<input  name="imc" type="number" value="{{IMC}}">
+<br>
+<label for="grasa">Porcentaje de grasa</label>
+<input  name="grasa" type="number" value="{{porcentajeGrasa}}">
+<br>
+<label for="musculo">Porcentaje de musculo</label>
+<input  name="musculo" type="number" value="{{porcentajeMusculo}}">
+<br>
+<label for="indice">Indice cintura - cadera</label>
+<input  name="indice" type="number" value="{{indiceCinturaCadera}}">
+<br>
+<label for="metabolismo">Metabolismo Basal en reposo</label>
+<input  name="metabolismo" type="number" value="{{MetabolismoBasalEnReposo}}">
+<br>
+<label for="descripcion">Descripcion</label>
+<input  name="descripcion" type="text" value="{{descripcion}}">
+<br>
+<br>
+<input type="submit" value="Crear paciente">
+
+{{!-- Faltan las fotos, usar cloudinary?, no olvides enctype --}}
+
+</form>
