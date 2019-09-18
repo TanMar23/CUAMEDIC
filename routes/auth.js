@@ -6,10 +6,6 @@ const nodemailer = require('nodemailer')
 const {login} = require('../controllers/auth-controllers')
 const {getProfile, editProfileForm, editProfile} = require('../controllers/profile-controller')
 
-router.get('/', (req, res, next) => {
-  res.redirect('/auth/login');
-});
-
 router.get("/login", (req, res) => {
   res.render("auth-form");
 });
