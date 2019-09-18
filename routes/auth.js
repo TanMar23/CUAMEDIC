@@ -4,7 +4,7 @@ const User = require('../models/User')
 const passport = require('passport')
 const nodemailer = require('nodemailer')
 const {login} = require('../controllers/auth-controllers')
-const {getProfile} = require('../controllers/profile-controller')
+const {getProfile, editProfileForm} = require('../controllers/profile-controller')
 
 router.get('/', (req, res, next) => {
   res.redirect('/auth/login');
@@ -16,13 +16,8 @@ router.get("/login", (req, res) => {
 router.post("/login", passport.authenticate('local'), login)
 
 router.get('/profile', getProfile)
-// router.get("/profile/:id",  async (req, res) => {
-//   const { id } = req.params
-//   const user = await User.findById(id)
-//   console.log(user)
-//   res.render("profile", {user});
-// });
-// router.post("/login", passport.authenticate('local'), login)
+
+router.get('/edit-profile',editProfileForm)
 
 
 
