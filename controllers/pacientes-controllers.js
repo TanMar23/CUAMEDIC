@@ -7,18 +7,31 @@ exports.createPatientForm = async (req, res) => {
 }
 
 exports.createPatient = async (req, res, next) => {
+  try{
   const {name, lastName, email, fotoPerfil, peso, talla, IMC, porcentajeGrasa, porcentajeMusculo, indiceCinturaCadera, MetabolismoBasalEnReposo, fotosProgreso, descripcion, sexo, password} = req.body
 
   await User.register({name, lastName, email, fotoPerfil, peso, talla, IMC, porcentajeGrasa, porcentajeMusculo, indiceCinturaCadera, MetabolismoBasalEnReposo, fotosProgreso, descripcion, sexo}, password)
   res.redirect('/auth/pacientes')
+  }
+  catch(error){
+    console.log(error)
+    if(error.name === 'UserExistsError'){
+      error = {...error, message: 'Ya hay un usuario registrado con ese email'}
+    }
+    res.render('auth/create-patient', {error})
+  }
 }
 
 /////////////////////READ//////////////////////////////
 exports.getPacientes = async (req,res,next) => {
   const pacientes =await User.find({role: 'PACIENTE'})
-  console.log(pacientes);
-  
   res.render('auth/lista', {pacientes})
+}
+
+exports.getPaciente = async (req,res,next) => {
+  const {id} = req.params
+  const paciente = await User.findById(id)
+  res.render('auth/patient-detalle', paciente)
 }
 
 /////////////////UPDATE///////////////////////////////

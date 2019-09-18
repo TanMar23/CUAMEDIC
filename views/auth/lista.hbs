@@ -2,25 +2,33 @@
 {{#if users}}
 <h1>COLABORADORES</h1>
 <br><br>
+<p>Usuario loggeado: {{loggedUser.role}}</p>
+
+<!--{{#equal this.loggedUser.role 'MEDICO'}}-->
+<!--{{/equal}}-->
 {{#each users}}
 <h1>{{this.name}}</h1>
-<a href="/auth/edit-colaborador/{{this._id}}"><button>Editar</button></a>
+<a class="button is-info"href="/auth/edit-colaborador/{{this._id}}">Editar</a>
 <br>
-<form action="/auth/delete-colaborador/{{this._id}}" method="POST"><button>Borrar</button></form>
+<form action="/auth/delete-colaborador/{{this._id}}" method="POST"><button class="button is-danger">Borrar</button></form>
 <br>
 <br>
 {{/each}}
 <br><br>
-<a href="/auth/create-collaborator"><button>Añadir colaborador</button></a>
+<a class="button is-primary"href="/auth/create-collaborator">Añadir colaborador</a>
+
+
+
 
 {{else}}
 <h1>PACIENTES</h1>
 <br>
 {{#each pacientes}}
-<p>{{this.name}}</p>
-<a href="/auth/edit-patient/{{this._id}}">Editar paciente</a>
+<br><br>
+<a href="/auth/paciente/{{this._id}}"><p>{{this.name}} {{this.lastName}}</p></a>
 <br>
-{{!-- NO OLVIDES CAMBIAR ACTION EN DELETE --}}
+<a href="/auth/edit-patient/{{this._id}}"><button> Editar paciente</button></a>
+<br>
 <form action="/auth/delete-patient/{{this._id}}" method="POST"><button>Borrar</button></form>
 {{/each}}
 <br><br>

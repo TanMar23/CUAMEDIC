@@ -39,7 +39,11 @@
 <input  name="descripcion" type="text" value="{{descripcion}}">
 <br>
 <br>
+{{#if error}}
+  <div class="help is-danger">{{error.message}}</div>
+  {{/if}}
 <input type="submit" value="Crear paciente">
+
 
 {{!-- Faltan las fotos, usar cloudinary?, no olvides enctype --}}
 
