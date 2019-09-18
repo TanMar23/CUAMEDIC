@@ -19,4 +19,3 @@ exports.editProfile = async (req,res,next) => {
   await User.findByIdAndUpdate(req.user.id,{ name, lastName, email})
   res.redirect('/auth/profile')
 }
-
