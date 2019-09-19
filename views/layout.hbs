@@ -11,6 +11,10 @@
 </head>
 <body>
 
+
+
+
+
  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item icon is-large	has-text-success">
@@ -26,15 +30,55 @@
     </div>
 
     <div id="burger" class="navbar-menu">
-      <div class="navbar-start">
-        <a href="/auth/profile" class="navbar-item">
-          Perfil
+      
+        {{#equal role 'MEDICO'}}
+        <div class="navbar-start">
+          <a href="/auth/profile" class="navbar-item">
+            Perfil
+          </a>
+        </div>
+        <a href="/auth/colaboradores" class="navbar-item">
+         Colaboradores
         </a>
-        <a href="" class="navbar-item">
-         
+
+        <a href="/auth/pacientes" class="navbar-item">
+         Pacientes
         </a>
+        <a href="/auth/logout" class="navbar-item">
+         Salir
+        </a>
+        {{/equal}}
+
+         {{#equal role 'EMPLEADO'}}
+        <div class="navbar-start">
+          <a href="/auth/profile" class="navbar-item">
+            Perfil
+          </a>
+        </div>
+        <a href="/auth/pacientes/{{this.pacientes}}" class="navbar-item">
+         Pacientes
+        </a>
+        <a href="/auth/logout" class="navbar-item">
+         Salir
+        </a>
+        {{/equal}}
+
+        {{#equal role 'PACIENTE'}}
+          <div class="navbar-start">
+            <a href="/auth/profile" class="navbar-item">
+              Perfil
+            </a>
+          </div>
+          <a href="/auth/paciente/{{this._id}}" class="navbar-item">
+          Progreso
+          </a>
+          <a href="/auth/logout" class="navbar-item">
+          Salir
+          </a>
+        {{/equal}}
+       
       </div>
-      <div class="navbar-end">
+      {{!-- <div class="navbar-end">
         <a href="/" class="navbar-item">
           Iniciar Sesion
         </a>
@@ -48,7 +92,7 @@
         <a href="/auth/logout" class="navbar-item">
          Salir
         </a>
-      </div>
+      </div> --}}
     </div>
   </nav>
 

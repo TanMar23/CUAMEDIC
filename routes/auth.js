@@ -20,8 +20,9 @@ router.get('/profile', getProfile)
 router.get('/edit-profile',editProfileForm)
 
 router.post('/edit-profile', editProfile)
-  //RUTAS COLABORADORES
 
+
+//RUTAS COLABORADORES
 //Read
 router.get('/colaboradores', getColaboradores)
 router.get('/un-colab/:id', getColab)
@@ -53,7 +54,7 @@ router.post('/delete-patient/:id', deletePatient)
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/login");
+  res.redirect("/auth/login");
 });
 
 module.exports = router;

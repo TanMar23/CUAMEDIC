@@ -1,7 +1,9 @@
 const User = require('../models/User')
 
 exports.login = async(req,res,next) => {
+ // const loggedUser = req.user
   if(req.user.role === 'MEDICO') {
+    //loggedUser.isDr = true
    res.redirect('/auth/profile')
    
   }
@@ -14,7 +16,3 @@ exports.login = async(req,res,next) => {
     res.redirect('/auth/login')
   }
 }
-
-//NAVBAR HACEMOS CONDICIONES
-//NO redirigir a diretentes rutas, todas a profile
-//todas la misma vista
