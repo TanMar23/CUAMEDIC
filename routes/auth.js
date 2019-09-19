@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer')
 const {login} = require('../controllers/auth-controllers')
 const {getProfile, editProfileForm, editProfile} = require('../controllers/profile-controller')
 const {getColaboradores, createColaborador, createColaboradorForm
-       ,editColaborador, editColaboradorForm, deleteColaborador} = require('../controllers/colaboradores-controller')
+       ,editColaborador, editColaboradorForm, deleteColaborador, getColab} = require('../controllers/colaboradores-controller')
 
 const {createPatientForm, createPatient, getPaciente, getPacientes, editPatientForm, editPatient, deletePatient} = require('../controllers/pacientes-controllers')
 
@@ -20,10 +20,11 @@ router.get('/profile', getProfile)
 router.get('/edit-profile',editProfileForm)
 
 router.post('/edit-profile', editProfile)
-//RUTAS COLABORADORES
+  //RUTAS COLABORADORES
 
 //Read
 router.get('/colaboradores', getColaboradores)
+router.get('/un-colab/:id', getColab)
 //Create
 router.get('/create-collaborator', createColaboradorForm)
 router.post('/create-collaborator', createColaborador)
@@ -52,7 +53,7 @@ router.post('/delete-patient/:id', deletePatient)
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/");
+  res.redirect("/login");
 });
 
 module.exports = router;

@@ -7,7 +7,8 @@
 <!--{{#equal this.loggedUser.role 'MEDICO'}}-->
 <!--{{/equal}}-->
 {{#each users}}
-<h1>{{this.name}}</h1>
+<a href="/auth/un-colab/{{this._id}}">{{this.name}} {{this.lastName}}</a>
+<br>
 <a class="button is-info"href="/auth/edit-colaborador/{{this._id}}">Editar</a>
 <br>
 <form action="/auth/delete-colaborador/{{this._id}}" method="POST"><button class="button is-danger">Borrar</button></form>
