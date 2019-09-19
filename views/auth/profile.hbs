@@ -7,6 +7,8 @@
 <div class="column is-half">
   <div class="card">
   <div class="card-image">
+    <br>
+    <p class="has-text-centered has-text-weight-bold is-size-6">Tipo de Usuario: {{user.role}}</p>
     <figure class="image is-128x128 centrar">
   <img class="is-rounded" src="{{fotoPerfil}}">
 </figure>
@@ -14,8 +16,8 @@
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="title is-4 centrar">{{name}} {{lastName}}</p>
-        <p class="subtitle is-6 centrar">{{email}}</p>
+        <p class="title is-4 centrar">{{user.name}} {{user.lastName}}</p>
+        <p class="subtitle is-6 centrar">{{user.email}}</p>
         
        <article class="message is-primary">
           <div class="message-header">

@@ -5,8 +5,8 @@ const passport = require('passport')
 const nodemailer = require('nodemailer')
 const {login} = require('../controllers/auth-controllers')
 const {getProfile, editProfileForm, editProfile} = require('../controllers/profile-controller')
-const {getColaboradores, createColaborador, createColaboradorForm
-       ,editColaborador, editColaboradorForm, deleteColaborador, getColab} = require('../controllers/colaboradores-controller')
+const {getColaboradores,getColab, createColaborador, createColaboradorForm
+       ,editColaborador, editColaboradorForm, deleteColaborador} = require('../controllers/colaboradores-controller')
 
 const {createPatientForm, createPatient, getPaciente, getPacientes, editPatientForm, editPatient, deletePatient} = require('../controllers/pacientes-controllers')
 
@@ -49,6 +49,8 @@ router.post('/edit-patient/:id', editPatient)
 //Delete
 router.post('/delete-patient/:id', deletePatient)
 
+//RUTA MI PROGRESO
+router.get('/progreso',)
 
 
 

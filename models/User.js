@@ -16,7 +16,8 @@ const UserSchema = new Schema(
       default: 'PACIENTE'
     },
     fotoPerfil: {
-      type: String
+      type: String,
+      default: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" 
     },
     peso: [Number],
     talla: [Number],
