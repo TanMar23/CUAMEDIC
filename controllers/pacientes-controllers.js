@@ -25,13 +25,17 @@ exports.createPatient = async (req, res, next) => {
 /////////////////////READ//////////////////////////////
 exports.getPacientes = async (req,res,next) => {
   const pacientes =await User.find({role: 'PACIENTE'})
-  res.render('auth/lista', {pacientes})
+  const user = req.user;
+  const isDr = user.role === 'MEDICO'
+  const isColab = user.role === 'EMPLEADO'
+  const isPaciente = user.role === 'PACIENTE'
+  res.render('auth/lista', {pacientes,user, isDr, isColab, isPaciente})
 }
-
 exports.getPaciente = async (req,res,next) => {
   const {id} = req.params
   const paciente = await User.findById(id)
-  res.render('auth/patient-detalle', paciente)
+  
+res.render('auth/patient-detalle', paciente)
 }
 
 /////////////////UPDATE///////////////////////////////

@@ -38,13 +38,26 @@
         <a href="/" class="navbar-item">
           Iniciar Sesion
         </a>
+        {{#if isDr}}
         <a href="/auth/colaboradores" class="navbar-item">
          Colaboradores
         </a>
-
+        {{/if}}
+        {{#if isDr}}
         <a href="/auth/pacientes" class="navbar-item">
          Pacientes
         </a>
+        {{/if}}
+        {{#if isColab}}
+        <a href="/auth/pacientes" class="navbar-item">
+         Pacientes
+        </a>
+        {{/if}}
+        {{#if isPaciente}}
+        <a href="/auth/pacientes" class="navbar-item">
+         Mi Progreso
+        </a>
+        {{/if}}
         <a href="" class="navbar-item">
          Salir
         </a>

@@ -24,9 +24,11 @@ exports.createColaborador = async (req,res) => {
 //Read
 exports.getColaboradores = async (req,res,next) => {
   const users =await User.find({role: 'EMPLEADO'})
-  const {user: loggedUser} = req
-  console.log(loggedUser.role)
-  res.render('auth/lista', {users, loggedUser})
+  const user = req.user;
+  const isDr = user.role === 'MEDICO'
+  const isColab = user.role === 'EMPLEADO'
+  const isPaciente = user.role === 'PACIENTE'
+    res.render('auth/lista', {users, user, isDr, isColab, isPaciente})
 }
 
 //Update
