@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +15,14 @@
 </head>
 <body>
 
- <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+
+
+
+
+ <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item icon is-large	has-text-success">
-          {{!-- SI QUIERES HACER MODIFICACIONES AL SIZE EN CSS (font awesome)--}}
+        <a class="navbar-item icon is-large	has-text-white">
+
           <i class="fab fa-3x	fa-nutritionix"></i>
       </a>
 
@@ -26,41 +34,39 @@
     </div>
 
     <div id="burger" class="navbar-menu">
-      <div class="navbar-start">
-        <a href="/auth/profile" class="navbar-item">
-          Perfil
-        </a>
-        <a href="" class="navbar-item">
-         
-        </a>
-      </div>
-      <div class="navbar-end">
-        <a href="/" class="navbar-item">
-          Iniciar Sesion
-        </a>
+      
+        <div class="navbar-start">
+          <a href="/auth/profile" class="navbar-item">
+              <strong>Perfil</strong>
+          </a>
+        </div>
         {{#if isDr}}
-        <a href="/auth/colaboradores" class="navbar-item">
-         Colaboradores
+        <div class="navbar-end">
+            <a href="/auth/colaboradores" class="has-text-white navbar-item">
+         <strong>Colaboradores</strong>
         </a>
         {{/if}}
         {{#if isDr}}
-        <a href="/auth/pacientes" class="navbar-item">
-         Pacientes
+        <a href="/auth/pacientes" class="has-text-white navbar-item">
+           <strong>Pacientes</strong>
         </a>
         {{/if}}
         {{#if isColab}}
-        <a href="/auth/pacientes" class="navbar-item">
-         Pacientes
+        <a href="/auth/pacientes" class="has-text-white navbar-item">
+           <strong>Pacientes</strong>
         </a>
         {{/if}}
         {{#if isPaciente}}
-        <a href="/auth/pacientes" class="navbar-item">
-         Mi Progreso
+        <a href="/auth/progreso" class="has-text-white navbar-item">
+           <strong>Mi Progreso</strong>
         </a>
         {{/if}}
-        <a href="" class="navbar-item">
-         Salir
+        <a href="/auth/logout" class="has-text-white navbar-item">
+           <strong>Salir</strong>
         </a>
+        </div>
+
+       
       </div>
     </div>
   </nav>
@@ -73,6 +79,7 @@
 
 
   {{{body}}}
+
 
 
   <script src="/javascripts/script.js"></script>

@@ -30,6 +30,11 @@ exports.getColaboradores = async (req,res,next) => {
   const isPaciente = user.role === 'PACIENTE'
     res.render('auth/lista', {users, user, isDr, isColab, isPaciente})
 }
+exports.getColab = async (req,res,next) => {
+  const {id} = req.params
+  const colab = await User.findById(id)
+  res.render('auth/detalle-colab', colab)
+}
 
 //Update
 exports.editColaboradorForm = async (req,res) => {

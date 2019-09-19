@@ -5,7 +5,7 @@ const passport = require('passport')
 const nodemailer = require('nodemailer')
 const {login} = require('../controllers/auth-controllers')
 const {getProfile, editProfileForm, editProfile} = require('../controllers/profile-controller')
-const {getColaboradores, createColaborador, createColaboradorForm
+const {getColaboradores,getColab, createColaborador, createColaboradorForm
        ,editColaborador, editColaboradorForm, deleteColaborador} = require('../controllers/colaboradores-controller')
 
 const {createPatientForm, createPatient, getPaciente, getPacientes, editPatientForm, editPatient, deletePatient} = require('../controllers/pacientes-controllers')
@@ -24,6 +24,7 @@ router.post('/edit-profile', editProfile)
 
 //Read
 router.get('/colaboradores', getColaboradores)
+router.get('/un-colab/:id', getColab)
 //Create
 router.get('/create-collaborator', createColaboradorForm)
 router.post('/create-collaborator', createColaborador)
@@ -47,12 +48,14 @@ router.post('/edit-patient/:id', editPatient)
 //Delete
 router.post('/delete-patient/:id', deletePatient)
 
+//RUTA MI PROGRESO
+router.get('/progreso',)
 
 
 
 router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/");
+  res.redirect("/auth/login");
 });
 
 module.exports = router;

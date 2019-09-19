@@ -14,7 +14,3 @@ exports.login = async(req,res,next) => {
     res.redirect('/auth/login')
   }
 }
-
-//NAVBAR HACEMOS CONDICIONES
-//NO redirigir a diretentes rutas, todas a profile
-//todas la misma vista

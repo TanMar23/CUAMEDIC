@@ -6,6 +6,7 @@ exports.getProfile = async(req, res, next) => {
   const isDr = user.role === 'MEDICO'
   const isColab = user.role === 'EMPLEADO'
   const isPaciente = user.role === 'PACIENTE'
+  console.log(isPaciente)
   res.render('auth/profile', {user, isDr, isColab, isPaciente})     
 }
 //Update
