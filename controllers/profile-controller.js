@@ -3,18 +3,23 @@ const User = require('../models/User')
 //Read
 exports.getProfile = async(req, res, next) => {
   const { user } = req;
+  console.log(req)
+  const isLoggedIn = true
   const isDr = user.role === 'MEDICO'
   const isColab = user.role === 'EMPLEADO'
   const isPaciente = user.role === 'PACIENTE'
-  console.log(isPaciente)
-  res.render('auth/profile', {user, isDr, isColab, isPaciente})     
+  res.render('auth/profile', {user,isLoggedIn, isDr, isColab, isPaciente})     
 }
 //Update
 //TODO: Darle estilos al formulario
 exports.editProfileForm = async (req,res) => {
   const id = req.user.id
   const user = await User.findById(id) 
-  res.render('auth/edit-profile', user)
+  const isLoggedIn = true
+  const isDr = user.role === 'MEDICO'
+  const isColab = user.role === 'EMPLEADO'
+  const isPaciente = user.role === 'PACIENTE'
+  res.render('auth/edit-profile', {user, isLoggedIn, isDr, isColab, isPaciente})
 }
 exports.editProfile = async (req,res,next) => {
   const {name, lastName, email} = req.body

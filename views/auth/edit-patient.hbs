@@ -1,41 +1,41 @@
 <h1>Editar Paciente</h1>
 
-<form action="/auth/edit-patient/{{_id}}" method="POST">
+<form action="/auth/edit-patient/{{paciente._id}}" method="POST">
 <label for="name">Name</label>
-<input name="name" type="text" value="{{name}}">
+<input name="name" type="text" value="{{paciente.name}}">
 <br>
 <label for="lastName">Last Name</label>
-<input name="lastName" type="text" value="{{lastName}}">
+<input name="lastName" type="text" value="{{paciente.lastName}}">
 <br>
 <label for="email">Email</label>
-<input  name="email" type="email" value="{{email}}">
+<input  name="email" type="email" value="{{paciente.email}}">
 <br>
 <label for="password">Password</label>
 <input name="password" type="password" value="{{password}}">
 <br>
 <label for="peso">Peso</label>
-<input  name="peso" type="number" value="{{peso}}">
+<input  name="peso" type="number" value="{{paciente.peso}}">
 <br>
 <label for="talla">Talla</label>
-<input  name="talla" type="number" value="{{talla}}">
+<input  name="talla" type="number" value="{{paciente.talla}}">
 <br>
 <label for="imc">IMC</label>
-<input  name="imc" type="number" value="{{IMC}}">
+<input  name="imc" type="number" value="{{paciente.IMC}}">
 <br>
 <label for="grasa">Porcentaje de grasa</label>
-<input  name="grasa" type="number" value="{{porcentajeGrasa}}">
+<input  name="grasa" type="number" value="{{paciente.porcentajeGrasa}}">
 <br>
 <label for="musculo">Porcentaje de musculo</label>
-<input  name="musculo" type="number" value="{{porcentajeMusculo}}">
+<input  name="musculo" type="number" value="{{paciente.porcentajeMusculo}}">
 <br>
 <label for="indice">Indice cintura - cadera</label>
-<input  name="indice" type="number" value="{{indiceCinturaCadera}}">
+<input  name="indice" type="number" value="{{paciente.indiceCinturaCadera}}">
 <br>
 <label for="metabolismo">Metabolismo Basal en reposo</label>
-<input  name="metabolismo" type="number" value="{{MetabolismoBasalEnReposo}}">
+<input  name="metabolismo" type="number" value="{{paciente.MetabolismoBasalEnReposo}}">
 <br>
 <label for="descripcion">Descripcion</label>
-<input  name="descripcion" type="text" value="{{descripcion}}">
+<input  name="descripcion" type="text" value="{{paciente.descripcion}}">
 <br>
 <br>
 <input type="submit" value="Editar paciente">

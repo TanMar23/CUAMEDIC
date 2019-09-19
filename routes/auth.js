@@ -8,10 +8,11 @@ const {getProfile, editProfileForm, editProfile} = require('../controllers/profi
 const {getColaboradores,getColab, createColaborador, createColaboradorForm
        ,editColaborador, editColaboradorForm, deleteColaborador} = require('../controllers/colaboradores-controller')
 
-const {createPatientForm, createPatient, getPaciente, getPacientes, editPatientForm, editPatient, deletePatient} = require('../controllers/pacientes-controllers')
+const {createPatientForm, createPatient, getPaciente, getPacientes, getMiProgreso, editPatientForm, editPatient, deletePatient} = require('../controllers/pacientes-controllers')
 
 router.get("/login", (req, res) => {
-  res.render("auth-form");
+  const isLoggedIn = false
+  res.render("auth-form", isLoggedIn);
 });
 router.post("/login", passport.authenticate('local'), login)
 
@@ -49,7 +50,7 @@ router.post('/edit-patient/:id', editPatient)
 router.post('/delete-patient/:id', deletePatient)
 
 //RUTA MI PROGRESO
-router.get('/progreso',)
+router.get('/progreso',getMiProgreso)
 
 
 
