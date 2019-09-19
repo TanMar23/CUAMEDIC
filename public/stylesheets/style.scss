@@ -21,10 +21,6 @@ a {
     width: 6rem 
   }
 
-  // .column.is-6{
-  //   margin-top: 7.5%;
-  // }
-
   .centrar{
     display: flex;
     justify-content: center;
@@ -55,6 +51,7 @@ a {
     &:hover{
       color: black !important;
     }
+    font-size: 1.25rem
 }
 
 .buttons.is-centered{

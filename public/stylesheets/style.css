@@ -36,7 +36,8 @@ a {
   background-color: transparent;
   width: 100%;
   cursor: pointer;
-  text-align: center; }
+  text-align: center;
+  font-size: 1.25rem; }
   .my-delete:hover {
     color: black !important; }
 
