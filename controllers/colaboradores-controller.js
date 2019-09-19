@@ -47,6 +47,17 @@ exports.getColab = async (req,res,next) => {
   res.render('auth/detalle-colab', {colab, user,isLoggedIn, isDr, isColab, isPaciente})
 }
 
+exports.getColab = async (req,res,next) => {
+  const {id} = req.params
+  const colab = await User.findById(id)
+  const user = req.user;
+  const isLoggedIn = true
+  const isDr = user.role === 'MEDICO'
+  const isColab = user.role === 'EMPLEADO'
+  const isPaciente = user.role === 'PACIENTE'
+  res.render('auth/detalle-colab', {colab, user,isLoggedIn, isDr,isColab, isPaciente})
+}
+
 //Update
 exports.editColaboradorForm = async (req,res) => {
   const {id} = req.params

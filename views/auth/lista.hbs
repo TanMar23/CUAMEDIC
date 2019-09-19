@@ -1,59 +1,7 @@
-<!--
-{{#if users}}
-<h1>COLABORADORES</h1>
-<br><br>
-<p>Usuario loggeado: {{user.role}}</p>
-
-{{#each users}}
-<h1>{{this.name}} {{this.lastName}}</h1>
-{{#if ../isDr}}
-<a class="button is-info"href="/auth/edit-colaborador/{{this._id}}">Editar</a>
-<br>
-<form action="/auth/delete-colaborador/{{this._id}}" method="POST">
-<button class="button is-danger">Borrar</button></form>
-<br>
-<br>
-{{/if}}
-{{/each}}
-<br><br>
-{{#if isDr}}
-<a class="button is-primary"href="/auth/create-collaborator">Añadir colaborador</a>
-{{/if}}
-
-
-
-{{else}}
-<h1>PACIENTES</h1>
-<br>
-
-<p>Usuario loggeado: {{user.role}}</p>
-{{#each pacientes}}
-
-
-<br><br>
-
-<a href="/auth/paciente/{{this._id}}"><p>{{this.name}} {{this.lastName}}</p></a>
-<br>
-{{#if ../isDr}}
-<a href="/auth/edit-patient/{{this._id}}"><button> Editar paciente</button></a>
-<br>
-<form action="/auth/delete-patient/{{this._id}}" method="POST"><button>Borrar</button></form>
-{{/if}}
-{{/each}}
-<br><br>
-{{#if isDr}}
-<a href="/auth/create-patient"><button>Añadir paciente</button></a>
-{{/if}}
-{{/if}}
--->
-
 {{#if users}}
 <br>
 <br>
-<h1 class="has-text-centered has-text-weight-bold is-size-3">COLABORADORES</h1>
-<br><br>
-<p>Usuario loggeado: {{user.role}}</p>
-
+<h1 class="has-text-centered has-text-weight-bold is-size-4">COLABORADORES</h1>
 
 <hr>
 <div class=" is-variable is-5 columns is-centered is-mobile">
@@ -64,10 +12,10 @@
 
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title is-centered">{{this.name}} {{this.lastName}}</p>
-            <a href="/auth/un-colab/{{this._id}}" class="card-header-icon" aria-label="more options">
+            <p class="card-header-title is-centered has-background-grey	has-text-white">{{this.name}} {{this.lastName}}</p>
+            <a href="/auth/un-colab/{{this._id}}" class="card-header-icon has-background-grey	" aria-label="more options">
               <span class="icon">
-                <i class="fas fa-plus-square" aria-hidden="true"></i>
+                <i class="fas fa-plus-square has-text-white" aria-hidden="true"></i>
               </span>
             </a>
 
@@ -78,11 +26,18 @@
               <img class="image is-128x128" src="{{this.fotoPerfil}}" alt="">
             </div>
           </div>
-          <footer class="card-footer">
+          <footer class="uno">
+            <div class="center">
+               <div class="is-flex is-justify-centered">
+              <form action="/auth/delete-colaborador/{{this._id}}" method="POST"><input type="submit" value="Borrar"
+                class="card-footer-item has-text-danger my-delete"></form>
+              </div>
+              <div class="is-flex is-justify-centered">
+                <a href="/auth/edit-colaborador/{{this._id}}" class="card-footer-item">Editar</a>
 
-            <a href="/auth/edit-colaborador/{{this._id}}" class="button is-info is-outlined">Editar</a>
-            <form action="/auth/delete-colaborador/{{this._id}}" method="POST"><button
-                class="button is-danger is-outlined is-fullwidth">Borrar</button></form>
+              </div>
+              
+            </div>
           </footer>
         </div>
       </div>
@@ -90,14 +45,16 @@
     </div>
     <div class="columns is-mobile">
       <div class="column">
+        <div class="buttons is-centered">
          <a class="button is-primary" href="/auth/create-collaborator"><strong>Añadir colaborador</strong></a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-{{else}}
-<h1 class="has-text-centered has-text-weight-bold is-size-3">PACIENTES</h1>
+{{!-- {{else}}
+<h1 class="has-text-centered has-text-weight-bold is-size-4">PACIENTES</h1>
 <br>
 {{#each pacientes}}
 <br><br>
@@ -115,4 +72,63 @@
 {{#if isDr}}
 <a href="/auth/create-patient"><button>Añadir paciente</button></a>
 {{/if}}
+{{/if}} --}}
+
+
+{{else}}
+<br>
+<br>
+<h1 class="has-text-centered has-text-weight-bold is-size-4">PACIENTES</h1>
+
+<hr>
+<div class=" is-variable is-5 columns is-centered is-mobile">
+  <div class="column is-10">
+    <div class="columns is-mobile is-multiline is-centered">
+      {{#each pacientes}}
+      <div class="column is-3">
+
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title is-centered has-background-grey	has-text-white">{{this.name}} {{this.lastName}}</p>
+            <a href="/auth/paciente/{{this._id}}" class="card-header-icon has-background-grey	" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-plus-square has-text-white" aria-hidden="true"></i>
+              </span>
+            </a>
+
+
+          </header>
+          <div class="card-content">
+            <div class="content centrar">
+              <img class="image is-128x128" src="{{this.fotoPerfil}}" alt="">
+            </div>
+          </div>
+          {{#if ../isDr}}
+          <footer class="uno">
+            <div class="center">
+               <div class="is-flex is-justify-centered">
+              <form action="/auth/delete-patient/{{this._id}}" method="POST"><input type="submit" value="Borrar"
+                class="card-footer-item has-text-danger my-delete"></form>
+              </div> 
+              <div class="is-flex is-justify-centered">
+                <a href="/auth/edit-patient/{{this._id}}" class="card-footer-item">Editar</a>
+              </div>
+            </div>
+          </footer>
+          {{/if}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{#if isDr}}
+    <div class="columns is-mobile">
+      <div class="column">
+        <div class="buttons is-centered">
+         <a class="button is-primary" href="/auth/create-patient"><strong>Añadir paciente</strong></a>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>
 {{/if}}

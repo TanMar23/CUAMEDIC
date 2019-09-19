@@ -1,4 +1,4 @@
-<form action="/auth/create-collaborator" method="post">
+{{!-- <form action="/auth/create-collaborator" method="post">
   <label>Name</label>
   <input type="text" name="name">
   <label>Last Name</label>
@@ -13,4 +13,75 @@
   <div class="help is-danger">{{error.message}}</div>
   {{/if}}
   <button type="submit">Agregar</button>
+</form> --}}
+
+<br>
+<h2 class="has-text-centered has-text-weight-bold is-size-4">AGREGAR COLABORADOR</h2>
+<br>
+<div class="columns is-centered">
+  <div class="column is-6">
+    <div class="container">
+ <div class="notification">
+  <form action="/auth/create-collaborator" method="post">
+  <div class="field">
+  <label class="label">Nombre</label>
+  <div class="control">
+    <input class="input" type="text" name="name">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Apellido</label>
+  <div class="control">
+    <input class="input" type="text" name="lastName">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input" type="email" placeholder="Email input" name="email">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Password</label>
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password" name="password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+<div class="file">
+  <label class="file-label">
+    <input class="file-input" type="file" name="resume">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Foto de perfil
+      </span>
+    </span>
+  </label>
+</div>
+
+  {{#if error}}
+  <div class="help is-danger">{{error.message}}</div>
+  {{/if}}
+  <div class="buttons is-centered">
+    <button type="submit" class="button is-primary">Agregar</button>
+  </div>
+
 </form>
+ </div>
+</div>
+  </div>
+</div>

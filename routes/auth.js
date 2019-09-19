@@ -21,8 +21,9 @@ router.get('/profile', getProfile)
 router.get('/edit-profile',editProfileForm)
 
 router.post('/edit-profile', editProfile)
-//RUTAS COLABORADORES
 
+
+//RUTAS COLABORADORES
 //Read
 router.get('/colaboradores', getColaboradores)
 router.get('/un-colab/:id', getColab)

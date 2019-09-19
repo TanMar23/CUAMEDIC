@@ -21,9 +21,9 @@ a {
     width: 6rem 
   }
 
-  .column.is-6{
-    margin-top: 7.5%;
-  }
+  // .column.is-6{
+  //   margin-top: 7.5%;
+  // }
 
   .centrar{
     display: flex;
@@ -33,5 +33,30 @@ a {
     padding-top: 15px;
   }
 
-  //Colaboradores
-  
+.center{
+  display: flex;
+  justify-content: center;
+
+}  
+
+.uno{
+    background-color: transparent;
+    border-top: 1px solid #dbdbdb;
+    align-items: stretch;
+   
+}
+
+.my-delete{
+    border:none;
+    background-color: transparent;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    &:hover{
+      color: black !important;
+    }
+}
+
+.buttons.is-centered{
+  margin-top: 5%
+}
