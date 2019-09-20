@@ -3,7 +3,6 @@ const User = require('../models/User')
 //Read
 exports.getProfile = async(req, res, next) => {
   const { user } = req;
-  console.log(req)
   const isLoggedIn = true
   const isDr = user.role === 'MEDICO'
   const isColab = user.role === 'EMPLEADO'

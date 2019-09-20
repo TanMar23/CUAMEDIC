@@ -1,20 +1,4 @@
-{{!-- <form action="/auth/edit-colaborador/{{_id}}" method="POST">
-<img src="{{fotoPerfil}}" alt="">
-<br>
-<label for="name">Name</label>
-<input name="name" type="text" value="{{colab.name}}">
-<br>
-<label for="lastName">Last Name</label>
-<input name="lastName" type="text" value="{{colab.lastName}}">
-<br>
-<label for="email">Email</label>
-<input  name="email" type="email" value="{{colab.email}}">
-<br>
-<br>
-<input type="submit" value="Edit colaborador">
 
-
-</form> --}}
 
 <br>
 <h2 class="has-text-centered has-text-weight-bold is-size-4">EDITAR COLABORADOR</h2>
@@ -23,25 +7,25 @@
   <div class="column is-6">
     <div class="container">
  <div class="notification">
-  <form action="/auth/edit-colaborador/{{_id}}" method="post">
+  <form action="/auth/edit-colaborador/{{colab._id}}" method="post">
   <div class="field">
   <label class="label">Nombre</label>
   <div class="control">
-    <input class="input" type="text" name="name" value="{{name}}">
+    <input class="input" type="text" name="name" value="{{colab.name}}">
   </div>
 </div>
 
 <div class="field">
   <label class="label">Apellido</label>
   <div class="control">
-    <input class="input" type="text" name="lastName" value="{{lastName}}">
+    <input class="input" type="text" name="lastName" value="{{colab.lastName}}">
   </div>
 </div>
 
 <div class="field">
   <label class="label">Email</label>
   <div class="control has-icons-left has-icons-right">
-    <input class="input" type="email" name="email" value="{{email}}">
+    <input class="input" type="email" name="email" value="{{colab.email}}">
     <span class="icon is-small is-left">
       <i class="fas fa-envelope"></i>
     </span>
