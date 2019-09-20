@@ -1,0 +1,85 @@
+<br>
+<h2 class="has-text-centered has-text-weight-bold is-size-4">Información de la cita</h2>
+<br>
+<div class="columns is-centered">
+  <div class="column is-6">
+    <div class="container">
+ <div class="notification">
+   <!--CAMBIAR ACTION-->
+  <form action="/auth/add-patient-info/{{paciente._id}}" method="post">
+  <div class="field">
+  <label class="label">Peso</label>
+  <div class="control">
+    <input class="input" type="number" name="peso" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Talla</label>
+  <div class="control">
+    <input class="input" type="number" name="talla" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">IMC</label>
+  <div class="control">
+    <input class="input" type="number" name="imc" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">% Grasa</label>
+  <div class="control">
+    <input class="input" type="number" name="porcentajeGrasa" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">% Músculo</label>
+  <div class="control">
+    <input class="input" type="number" name="porcentajeMusculo" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">ICC</label>
+  <div class="control">
+    <input class="input" type="number" name="icc" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Metabolismo basal en reposo</label>
+  <div class="control">
+    <input class="input" type="number" name="mber" value="">
+  </div>
+</div>
+
+
+<div class="file">
+  <label class="file-label">
+    <input class="file-input" type="file" name="foto">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Foto de progreso
+      </span>
+    </span>
+  </label>
+</div>
+
+  {{#if error}}
+  <div class="help is-danger">{{error.message}}</div>
+  {{/if}}
+  <div class="buttons is-centered">
+    <button type="submit" class="button is-primary">Agregar</button>
+  </div>
+
+</form>
+ </div>
+</div>
+  </div>
+</div>

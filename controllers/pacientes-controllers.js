@@ -55,6 +55,7 @@ exports.getMiProgreso = (req,res,next) => {
   const isColab = user.role === 'EMPLEADO'
   const isPaciente = user.role === 'PACIENTE'
   const isLoggedIn = true
+  console.log(Date.now())
   res.render('auth/progreso', {user, isDr, isColab, isPaciente, isLoggedIn})
 }
 
@@ -82,4 +83,39 @@ exports.deletePatient = async (req, res, next) => {
   const {id} = req.params
   const patient = await User.findByIdAndRemove(id) 
   res.redirect('/auth/pacientes')
+}
+
+///////////////////////INFO PACIENTE//////////////
+
+exports.addConsultaInfoForm = async (req,res,next) => {
+  const {id} = req.params
+  const paciente = await User.findById(id) 
+  console.log(paciente)
+  const user = req.user;
+  const isDr = user.role === 'MEDICO'
+  const isColab = user.role === 'EMPLEADO'
+  const isPaciente = user.role === 'PACIENTE' 
+  const isLoggedIn = true
+  res.render('auth/add-patient-info-form', {paciente,user, isDr, isColab, isPaciente, isLoggedIn})
+}
+
+exports.addConsultaInfo = async (req,res,next) => {
+  const {id} = req.params
+  const paciente = await User.findById(id)
+  const {peso, talla, imc, porcentajeGrasa, porcentajeMusculo, icc, mber, foto} = req.body
+  
+  paciente.peso.push(peso)
+  paciente.talla.push(talla)
+  paciente.IMC.push(imc)
+  paciente.porcentajeGrasa.push(porcentajeGrasa)
+  paciente.porcentajeMusculo.push(porcentajeMusculo)
+  paciente.indiceCinturaCadera.push(icc)
+  paciente.MetabolismoBasalEnReposo.push(mber)
+  paciente.fotosProgreso.push(foto)
+
+  await paciente.save()
+
+
+  
+  res.redirect(`/auth/paciente/${id}`)
 }
