@@ -1,45 +1,59 @@
-<h1>Editar Paciente</h1>
 
-<form action="/auth/edit-patient/{{paciente._id}}" method="POST">
-<label for="name">Name</label>
-<input name="name" type="text" value="{{paciente.name}}">
 <br>
-<label for="lastName">Last Name</label>
-<input name="lastName" type="text" value="{{paciente.lastName}}">
+<h2 class="has-text-centered has-text-weight-bold is-size-4">EDITAR PACIENTE</h2>
 <br>
-<label for="email">Email</label>
-<input  name="email" type="email" value="{{paciente.email}}">
-<br>
-<label for="password">Password</label>
-<input name="password" type="password" value="{{password}}">
-<br>
-<label for="peso">Peso</label>
-<input  name="peso" type="number" value="{{paciente.peso}}">
-<br>
-<label for="talla">Talla</label>
-<input  name="talla" type="number" value="{{paciente.talla}}">
-<br>
-<label for="imc">IMC</label>
-<input  name="imc" type="number" value="{{paciente.IMC}}">
-<br>
-<label for="grasa">Porcentaje de grasa</label>
-<input  name="grasa" type="number" value="{{paciente.porcentajeGrasa}}">
-<br>
-<label for="musculo">Porcentaje de musculo</label>
-<input  name="musculo" type="number" value="{{paciente.porcentajeMusculo}}">
-<br>
-<label for="indice">Indice cintura - cadera</label>
-<input  name="indice" type="number" value="{{paciente.indiceCinturaCadera}}">
-<br>
-<label for="metabolismo">Metabolismo Basal en reposo</label>
-<input  name="metabolismo" type="number" value="{{paciente.MetabolismoBasalEnReposo}}">
-<br>
-<label for="descripcion">Descripcion</label>
-<input  name="descripcion" type="text" value="{{paciente.descripcion}}">
-<br>
-<br>
-<input type="submit" value="Editar paciente">
+<div class="columns is-centered">
+  <div class="column is-6">
+    <div class="container">
+ <div class="notification">
+  <form action="/auth/edit-patient/{{paciente._id}}" method="post">
+  <div class="field">
+  <label class="label">Nombre</label>
+  <div class="control">
+    <input class="input" type="text" name="name" value="{{paciente.name}}">
+  </div>
+</div>
 
-{{!-- Faltan las fotos, usar cloudinary?, no olvides enctype --}}
+<div class="field">
+  <label class="label">Apellido</label>
+  <div class="control">
+    <input class="input" type="text" name="lastName" value="{{paciente.lastName}}">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input" type="email" name="email" value="{{paciente.email}}">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Password</label>
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password" name="password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+
+
+  {{#if error}}
+  <div class="help is-danger">{{error.message}}</div>
+  {{/if}}
+  <div class="buttons is-centered">
+    <button type="submit" class="button is-primary">Editar</button>
+  </div>
 
 </form>
+ </div>
+</div>
+  </div>
+</div>

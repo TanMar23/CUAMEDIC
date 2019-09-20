@@ -1,50 +1,113 @@
-{{!-- FORMULARIO PARA CREAR PACIENTE --}}
-<h1>Crear Paciente</h1>
+<br>
+<h2 class="has-text-centered has-text-weight-bold is-size-4">CREAR PACIENTE</h2>
+<br>
+<div class="columns is-centered">
+  <div class="column is-6">
+    <div class="container">
+ <div class="notification">
+   <!--CAMBIAR ACTION-->
+  <form action="/auth/create-patient" method="post">
+<div class="field">
+  <label class="label">Nombre</label>
+  <div class="control">
+    <input class="input" type="text" name="name" value="">
+  </div>
+</div>
 
-<form action="/auth/create-patient" method="POST">
-<label for="name">Name</label>
-<input name="name" type="text" value="{{name}}">
-<br>
-<label for="lastName">Last Name</label>
-<input name="lastName" type="text" value="{{lastName}}">
-<br>
-<label for="email">Email</label>
-<input  name="email" type="email" value="{{email}}">
-<br>
-<label for="password">Password</label>
-<input name="password" type="password" value="{{password}}">
-<br>
-<label for="peso">Peso</label>
-<input  name="peso" type="number" value="{{peso}}">
-<br>
-<label for="talla">Talla</label>
-<input  name="talla" type="number" value="{{talla}}">
-<br>
-<label for="imc">IMC</label>
-<input  name="imc" type="number" value="{{IMC}}">
-<br>
-<label for="grasa">Porcentaje de grasa</label>
-<input  name="grasa" type="number" value="{{porcentajeGrasa}}">
-<br>
-<label for="musculo">Porcentaje de musculo</label>
-<input  name="musculo" type="number" value="{{porcentajeMusculo}}">
-<br>
-<label for="indice">Indice cintura - cadera</label>
-<input  name="indice" type="number" value="{{indiceCinturaCadera}}">
-<br>
-<label for="metabolismo">Metabolismo Basal en reposo</label>
-<input  name="metabolismo" type="number" value="{{MetabolismoBasalEnReposo}}">
-<br>
-<label for="descripcion">Descripcion</label>
-<input  name="descripcion" type="text" value="{{descripcion}}">
-<br>
-<br>
-{{#if error}}
+<div class="field">
+  <label class="label">Apellido</label>
+  <div class="control">
+    <input class="input" type="text" name="lastName" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control">
+    <input class="input" type="email" name="email" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Contraseña</label>
+  <div class="control">
+    <input class="input" type="password" name="password" value="">
+  </div>
+</div>
+
+  <div class="field">
+  <label class="label">Peso</label>
+  <div class="control">
+    <input class="input" type="number" name="peso" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Talla</label>
+  <div class="control">
+    <input class="input" type="number" name="talla" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">IMC</label>
+  <div class="control">
+    <input class="input" type="number" name="imc" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">% Grasa</label>
+  <div class="control">
+    <input class="input" type="number" name="porcentajeGrasa" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">% Músculo</label>
+  <div class="control">
+    <input class="input" type="number" name="porcentajeMusculo" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">ICC</label>
+  <div class="control">
+    <input class="input" type="number" name="icc" value="">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Metabolismo basal en reposo</label>
+  <div class="control">
+    <input class="input" type="number" name="mber" value="">
+  </div>
+</div>
+
+
+<div class="file">
+  <label class="file-label">
+    <input class="file-input" type="file" name="foto">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Foto de progreso
+      </span>
+    </span>
+  </label>
+</div>
+
+  {{#if error}}
   <div class="help is-danger">{{error.message}}</div>
   {{/if}}
-<input type="submit" value="Crear paciente">
-
-
-{{!-- Faltan las fotos, usar cloudinary?, no olvides enctype --}}
+  <div class="buttons is-centered">
+    <button type="submit" class="button is-primary">Agregar</button>
+  </div>
 
 </form>
+ </div>
+</div>
+  </div>
+</div>

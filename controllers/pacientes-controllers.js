@@ -13,9 +13,8 @@ exports.createPatientForm = async (req, res) => {
 
 exports.createPatient = async (req, res, next) => {
   try{
-  const {name, lastName, email, fotoPerfil, peso, talla, IMC, porcentajeGrasa, porcentajeMusculo, indiceCinturaCadera, MetabolismoBasalEnReposo, fotosProgreso, descripcion, sexo, password} = req.body
-
-  await User.register({name, lastName, email, fotoPerfil, peso, talla, IMC, porcentajeGrasa, porcentajeMusculo, indiceCinturaCadera, MetabolismoBasalEnReposo, fotosProgreso, descripcion, sexo}, password)
+  const {name, lastName, email,password,peso, talla, imc, porcentajeGrasa, porcentajeMusculo, icc, mber, foto} = req.body
+  await User.register({name, lastName, email, peso, talla, imc, porcentajeGrasa, porcentajeMusculo, icc, mber, foto}, password)
   res.redirect('/auth/pacientes')
   }
   catch(error){
@@ -45,18 +44,21 @@ exports.getPaciente = async (req,res,next) => {
   const isColab = user.role === 'EMPLEADO'
   const isPaciente = user.role === 'PACIENTE'
   const isLoggedIn = true
+  const isGraphView = true
   
-res.render('auth/patient-detalle', {paciente, user, isDr, isColab, isPaciente, isLoggedIn})
+res.render('auth/patient-detalle', {paciente, user, isDr, isColab, isPaciente, isLoggedIn, isGraphView})
 }
 
 exports.getMiProgreso = (req,res,next) => {
-  const user = req.user
+  const { user } = req;
   const isDr = user.role === 'MEDICO'
   const isColab = user.role === 'EMPLEADO'
   const isPaciente = user.role === 'PACIENTE'
   const isLoggedIn = true
-  console.log(Date.now())
-  res.render('auth/progreso', {user, isDr, isColab, isPaciente, isLoggedIn})
+  const isGraphView = true
+  
+  console.log(user)
+  res.render('auth/progreso', {user, isDr, isColab, isPaciente, isLoggedIn, isGraphView})
 }
 
 /////////////////UPDATE///////////////////////////////
@@ -114,8 +116,5 @@ exports.addConsultaInfo = async (req,res,next) => {
   paciente.fotosProgreso.push(foto)
 
   await paciente.save()
-
-
-  
   res.redirect(`/auth/paciente/${id}`)
 }
