@@ -10,9 +10,12 @@ exports.createColaboradorForm = (req,res) => {
   res.render('auth/create-form', {user,isLoggedIn, isDr, isColab, isPaciente})
 }
 exports.createColaborador = async (req,res) => {
+  
   try{
-    const {name, lastName, email, password} = req.body
-  const user = await User.register({name, lastName, email, role: 'EMPLEADO'}, password)
+    const {name, lastName, email} = req.body
+    const {url: fotoPerfil} =  req.file
+    const {password} = req.body
+   await User.register({name, lastName, email, fotoPerfil, role: 'EMPLEADO'}, password)
   res.redirect('/auth/colaboradores')
   }
   catch(error){
@@ -22,6 +25,7 @@ exports.createColaborador = async (req,res) => {
     }
     res.render('auth/create-form', {error})
   }
+
 }
   
   
@@ -73,7 +77,9 @@ exports.editColaboradorForm = async (req,res) => {
 exports.editColaborador = async (req,res,next) => {
   const {name, lastName, email} = req.body
   const {id} = req.params
-  await User.findByIdAndUpdate(id,{ name, lastName, email})
+  const fotoPerfil = req.file ? req.file.url : undefined
+  await User.findByIdAndUpdate(id,{ name, lastName, email, fotoPerfil})
+  
   res.redirect('/auth/colaboradores')
 }
 

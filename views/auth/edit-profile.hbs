@@ -1,19 +1,104 @@
-<h1>Editar Perfil</h1>
+{{!-- <h1>Editar Perfil</h1>
 
 <form action="/auth/edit-profile" method="POST">
 <img src="{{fotoPerfil}}" alt="">
 <br>
-<label for="name">Name</label>
+<label for="name">Nombre</label>
 <input name="name" type="text" value="{{name}}">
 <br>
-<label for="lastName">Last Name</label>
+<label for="lastName">Apellido</label>
 <input name="lastName" type="text" value="{{lastName}}">
 <br>
 <label for="email">Email</label>
 <input  name="email" type="email" value="{{email}}">
 <br>
+<label for="password">Contraseña</label>
+<input name="password" type="password" value="{{lastName}}">
+<br>
+<label for="descripcion">Descripción</label>
+<input name="descripcion" type="text" value="{{lastName}}">
+<br>
 <br>
 <input type="submit" value="Editar perfil">
+</form> --}}
 
+
+
+<br>
+<h2 class="has-text-centered has-text-weight-bold is-size-4">EDITAR PERFIL</h2>
+<br>
+<div class="columns is-centered">
+  <div class="column is-6">
+    <div class="container">
+ <div class="notification">
+  <form action="/auth/edit-profile/{{_id}}" method="post">
+  <div class="field">
+  <label class="label">Nombre</label>
+  <div class="control">
+    <input class="input" type="text" name="name" value="{{name}}">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Apellido</label>
+  <div class="control">
+    <input class="input" type="text" name="lastName" value="{{lastName}}">
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Email</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input" type="email" name="email" value="{{email}}">
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Password</label>
+  <p class="control has-icons-left">
+    <input class="input" type="password" placeholder="Password" name="password">
+    <span class="icon is-small is-left">
+      <i class="fas fa-lock"></i>
+    </span>
+  </p>
+</div>
+<div class="file">
+  <label class="file-label">
+    <input class="file-input" type="file" name="resume">
+    <span class="file-cta">
+      <span class="file-icon">
+        <i class="fas fa-upload"></i>
+      </span>
+      <span class="file-label">
+        Foto de perfil
+      </span>
+    </span>
+  </label>
+</div>
+
+<br>
+<div class="field">
+  <div class="control"> 
+    <label for="descripcion">Descripción</label>
+    <textarea class="textarea"></textarea>
+  </div>
+</div>
+<div class="field">
+  {{#if error}}
+  <div class="help is-danger">{{error.message}}</div>
+  {{/if}}
+  <div class="buttons is-centered">
+    <button type="submit" class="button is-primary">Editar</button>
+  </div>
 
 </form>
+ </div>
+</div>
+  </div>
+</div>

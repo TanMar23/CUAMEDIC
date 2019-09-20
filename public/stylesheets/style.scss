@@ -21,10 +21,6 @@ a {
     width: 6rem 
   }
 
-  // .column.is-6{
-  //   margin-top: 7.5%;
-  // }
-
   .centrar{
     display: flex;
     justify-content: center;
@@ -55,8 +51,25 @@ a {
     &:hover{
       color: black !important;
     }
+    font-size: 1.25rem
 }
 
 .buttons.is-centered{
   margin-top: 5%
+}
+
+.card{
+  position: relative;
+  .float-right{
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 50px;
+    height: 40px;
+  }
+}
+
+.is-primary .navbar-end>a.navbar-item:hover,
+.is-primary .navbar-start>a.navbar-item:hover{
+  color: #111111 !important;
 }

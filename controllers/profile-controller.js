@@ -2,7 +2,7 @@ const User = require('../models/User')
 //Logged in user functions
 //Read
 exports.getProfile = async(req, res, next) => {
-  const { user } = req;
+  const { user } = await req;
   const isLoggedIn = true
   const isDr = user.role === 'MEDICO'
   const isColab = user.role === 'EMPLEADO'
@@ -25,3 +25,5 @@ exports.editProfile = async (req,res,next) => {
   await User.findByIdAndUpdate(req.user.id,{ name, lastName, email})
   res.redirect('/auth/profile')
 }
+
+// console.log(isDr);
