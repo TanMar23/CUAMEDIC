@@ -1,12 +1,38 @@
-<br><br>
-<h1>Hola {{user.name}} {{user.lastName}}</h1>
-<div style="height:500px; width:500px">
-<canvas id="myChart1"></canvas>
+<br>
+<h1 class="has-text-centered has-text-weight-bold is-size-4">Hola</h1>
+
+<br>
+
+<div class="columns is-centered">
+    <div class="column is-6">
+        <table class="table is-striped is-fullwidth">
+    <tr>
+        <td>Nombre:</td>
+        <td>{{user.name}}</td>
+    </tr>
+    <tr>
+        <td>Apellido:</td>
+        <td>{{user.lastName}}</td>
+</table>
+    </div>
 </div>
+
+<br>
+<div class="has-text-centered"> 
+    <a class="button is-info" href="/auth/add-patient-info/{{paciente._id}}">Añadir información de la consulta</a>
+</div>
+
+
 <br><br>
 
-</body>
-<script>
+
+
+<div class="centrar-chart columns is-centered">
+    <div class="column is-5">
+        <div style="height:600px; width:6   00px">
+<canvas id="myChart1"></canvas>
+</div>
+        <script>
 var ctx1 = document.getElementById('myChart1').getContext('2d');
 var myChart = new Chart(ctx1, {
     type: 'line',
@@ -45,4 +71,6 @@ var myChart = new Chart(ctx1, {
     }
 });
 </script>
+    </div>
+</div>
 </html>
