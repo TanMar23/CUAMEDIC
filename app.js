@@ -19,7 +19,7 @@ const MongoStore   = require('connect-mongo')(session)
 const passport     = require('./helpers/passport')
 
 mongoose
-  .connect('mongodb://localhost/proyecto-modulo2', {useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.DB , {useNewUrlParser: true, useUnifiedTopology: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })

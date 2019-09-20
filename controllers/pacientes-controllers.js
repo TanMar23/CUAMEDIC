@@ -3,7 +3,12 @@ const User = require('../models/User')
 
 //////////////////CREATE//////////////////////////
 exports.createPatientForm = async (req, res) => {
-  res.render('auth/create-patient')
+  const user = req.user;
+  const isDr = user.role === 'MEDICO'
+  const isColab = user.role === 'EMPLEADO'
+  const isPaciente = user.role === 'PACIENTE'
+  const isLoggedIn = true
+  res.render('auth/create-patient', {user, isDr, isColab, isPaciente, isLoggedIn})
 }
 
 exports.createPatient = async (req, res, next) => {
@@ -29,20 +34,40 @@ exports.getPacientes = async (req,res,next) => {
   const isDr = user.role === 'MEDICO'
   const isColab = user.role === 'EMPLEADO'
   const isPaciente = user.role === 'PACIENTE'
-  res.render('auth/lista', {pacientes,user, isDr, isColab, isPaciente})
+  const isLoggedIn = true
+  res.render('auth/lista', {pacientes,user, isDr, isColab, isPaciente, isLoggedIn})
 }
 exports.getPaciente = async (req,res,next) => {
   const {id} = req.params
   const paciente = await User.findById(id)
+  const user = req.user;
+  const isDr = user.role === 'MEDICO'
+  const isColab = user.role === 'EMPLEADO'
+  const isPaciente = user.role === 'PACIENTE'
+  const isLoggedIn = true
   
-res.render('auth/patient-detalle', paciente)
+res.render('auth/patient-detalle', {paciente, user, isDr, isColab, isPaciente, isLoggedIn})
+}
+
+exports.getMiProgreso = (req,res,next) => {
+  const user = req.user
+  const isDr = user.role === 'MEDICO'
+  const isColab = user.role === 'EMPLEADO'
+  const isPaciente = user.role === 'PACIENTE'
+  const isLoggedIn = true
+  res.render('auth/progreso', {user, isDr, isColab, isPaciente, isLoggedIn})
 }
 
 /////////////////UPDATE///////////////////////////////
 exports.editPatientForm = async (req,res) => {
   const {id} = req.params
-  const user = await User.findById(id)  
-  res.render('auth/edit-patient', user)
+  const paciente = await User.findById(id) 
+  const user = req.user;
+  const isDr = user.role === 'MEDICO'
+  const isColab = user.role === 'EMPLEADO'
+  const isPaciente = user.role === 'PACIENTE' 
+  const isLoggedIn = true
+  res.render('auth/edit-patient', {paciente,user, isDr, isColab, isPaciente, isLoggedIn})
 }
 exports.editPatient = async (req,res,next) => {
   const {id} = req.params
