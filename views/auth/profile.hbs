@@ -10,8 +10,9 @@
     <br>
     <p class="has-text-centered has-text-weight-bold is-size-6">Tipo de Usuario: {{user.role}}</p>
     <br>
-      <span class="tag is-info float-right"><a href="/edit-profile/{{_id}}" class="fas fa-edit is-size-3"></a></span>
-
+<div class="is-flex float-right">
+  <a href="/auth/edit-profile" class="card-footer-item is-size-5">Editar</a>
+              </div>
     <figure class="image is-128x128 centrar">
   <img class="is-rounded" src="{{user.fotoPerfil}}">
 </figure>
@@ -22,12 +23,13 @@
         <p class="title is-4 centrar">{{user.name}} {{user.lastName}}</p>
         <p class="subtitle is-6 centrar">{{user.email}}</p>
         
+        {{#if isDr}}
        <article class="message is-primary">
           <div class="message-header">
             <p>Educacion</p>
           </div>
           <div class="message-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+            <p>{{user.educacion}}</p>
           </div>
         </article>
 
@@ -36,10 +38,33 @@
             <p>Experiencia</p>
           </div>
           <div class="message-body">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+            <p>{{user.experiencia}}</p>
           </div>
           <hr>
         </article>
+        {{/if}}
+
+        {{#if isColab}}
+       <article class="message is-primary">
+          <div class="message-header">
+            <p>Educacion</p>
+          </div>
+          <div class="message-body">
+            <p>{{user.educacion}}</p>
+          </div>
+        </article>
+
+        <article class="message is-primary">
+          <div class="message-header">
+            <p>Experiencia</p>
+          </div>
+          <div class="message-body">
+            <p>{{user.experiencia}}</p>
+          </div>
+          <hr>
+        </article>
+        {{/if}}
+
       </div>
     </div>
   </div>
