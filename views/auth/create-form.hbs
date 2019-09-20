@@ -22,7 +22,7 @@
   <div class="column is-6">
     <div class="container">
  <div class="notification">
-  <form action="/auth/create-collaborator" method="post">
+  <form action="/auth/create-collaborator" method="post" enctype="multipart/form-data">
   <div class="field">
   <label class="label">Nombre</label>
   <div class="control">
@@ -61,7 +61,7 @@
 </div>
 <div class="file">
   <label class="file-label">
-    <input class="file-input" type="file" name="resume">
+    <input class="file-input" type="file" name="fotoPerfil">
     <span class="file-cta">
       <span class="file-icon">
         <i class="fas fa-upload"></i>

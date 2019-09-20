@@ -3,6 +3,8 @@ const router = express.Router()
 const User = require('../models/User')
 const passport = require('passport')
 const nodemailer = require('nodemailer')
+const { catchErrors } = require('../middlewares/catchErrors')
+const uploadCloud = require('../helpers/cloudinary')
 const {login} = require('../controllers/auth-controllers')
 const {getProfile, editProfileForm, editProfile} = require('../controllers/profile-controller')
 const {getColaboradores,getColab, createColaborador, createColaboradorForm
@@ -14,13 +16,13 @@ router.get("/login", (req, res) => {
   const isLoggedIn = false
   res.render("auth-form", isLoggedIn);
 });
-router.post("/login", passport.authenticate('local'), login)
+router.post("/login", passport.authenticate('local'), catchErrors(login))
 
 router.get('/profile', getProfile)
 
 router.get('/edit-profile',editProfileForm)
 
-router.post('/edit-profile', editProfile)
+router.post('/edit-profile', catchErrors(editProfile))
 
 
 //RUTAS COLABORADORES
@@ -29,26 +31,26 @@ router.get('/colaboradores', getColaboradores)
 router.get('/un-colab/:id', getColab)
 //Create
 router.get('/create-collaborator', createColaboradorForm)
-router.post('/create-collaborator', createColaborador)
+router.post('/create-collaborator', uploadCloud.single('fotoPerfil'), catchErrors(createColaborador))
 //Update
 router.get('/edit-colaborador/:id', editColaboradorForm)
-router.post('/edit-colaborador/:id', editColaborador)
+router.post('/edit-colaborador/:id', uploadCloud.single('fotoPerfil'), catchErrors( editColaborador))
 //Delete
-router.post('/delete-colaborador/:id', deleteColaborador)
+router.post('/delete-colaborador/:id', catchErrors(deleteColaborador))
 
 
 //RUTAS PACIENTES
 //Create
 router.get('/create-patient', createPatientForm)
-router.post('/create-patient', createPatient)
+router.post('/create-patient', uploadCloud.single('fotoPerfil'), catchErrors(createPatient))
 //Read
 router.get('/pacientes', getPacientes)
 router.get('/paciente/:id', getPaciente)
 //Update
 router.get('/edit-patient/:id', editPatientForm)
-router.post('/edit-patient/:id', editPatient)
+router.post('/edit-patient/:id', uploadCloud.single('fotoPerfil'), catchErrors(editPatient))
 //Delete
-router.post('/delete-patient/:id', deletePatient)
+router.post('/delete-patient/:id', catchErrors(deletePatient))
 
 //RUTA MI PROGRESO
 router.get('/progreso',getMiProgreso)

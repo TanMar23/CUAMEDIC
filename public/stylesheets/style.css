@@ -44,4 +44,17 @@ a {
 .buttons.is-centered {
   margin-top: 5%; }
 
+.card {
+  position: relative; }
+  .card .float-right {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 50px;
+    height: 40px; }
+
+.is-primary .navbar-end > a.navbar-item:hover,
+.is-primary .navbar-start > a.navbar-item:hover {
+  color: #111111 !important; }
+
 /*# sourceMappingURL=style.css.map */

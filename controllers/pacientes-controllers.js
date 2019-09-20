@@ -14,6 +14,8 @@ exports.createPatientForm = async (req, res) => {
 exports.createPatient = async (req, res, next) => {
   try{
   const {name, lastName, email, fotoPerfil, peso, talla, IMC, porcentajeGrasa, porcentajeMusculo, indiceCinturaCadera, MetabolismoBasalEnReposo, fotosProgreso, descripcion, sexo, password} = req.body
+  fotoPerfil =  req.file.url
+  password = req.body.password
 
   await User.register({name, lastName, email, fotoPerfil, peso, talla, IMC, porcentajeGrasa, porcentajeMusculo, indiceCinturaCadera, MetabolismoBasalEnReposo, fotosProgreso, descripcion, sexo}, password)
   res.redirect('/auth/pacientes')
@@ -71,7 +73,8 @@ exports.editPatientForm = async (req,res) => {
 }
 exports.editPatient = async (req,res,next) => {
   const {id} = req.params
-  const {name, lastName, email, fotoPerfil, peso, talla, IMC, porcentajeGrasa, porcentajeMusculo, indiceCinturaCadera, MetabolismoBasalEnReposo, fotosProgreso, descripcion, sexo} = req.body
+  const {name, lastName, email, peso, talla, IMC, porcentajeGrasa, porcentajeMusculo, indiceCinturaCadera, MetabolismoBasalEnReposo, fotosProgreso, descripcion, sexo} = req.body
+  fotoPerfil = req.file ? req.file.url : undefined
   
   await User.findByIdAndUpdate(id,{name, lastName, email, fotoPerfil, peso, talla, IMC, porcentajeGrasa, porcentajeMusculo, indiceCinturaCadera, MetabolismoBasalEnReposo, fotosProgreso, descripcion, sexo})
   res.redirect('/auth/pacientes')
